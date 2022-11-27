@@ -14,7 +14,7 @@ public class BackObj2 : MonoBehaviour
     public List<Sprite> an3;
     public List<Sprite> an4;
     public List<Sprite> an5;
-    public List<Sprite> an6;
+    //public List<Sprite> an6;
 
     private float size;
     private float maxSize;
@@ -22,6 +22,8 @@ public class BackObj2 : MonoBehaviour
     private float last_update;
     public float delay_per_frame;
     private int frame;
+
+    public List<int> rot;
 
     int an;
 
@@ -31,15 +33,19 @@ public class BackObj2 : MonoBehaviour
         SR = GetComponent<SpriteRenderer>();
         RB = GetComponent<Rigidbody2D>();
 
-        speed = Random.Range(30, 400);
+        speed = Random.Range(30, 150);
 
         maxSize = 10;
         size = Random.Range(4, maxSize);
 
         transform.localScale = new Vector3(size, size, 0);
 
-        images = new List<List<Sprite>> {an6, an2, an3, an4, an5, an1};
+        images = new List<List<Sprite>> {an2, an3, an4, an5, an1};
         an = Random.Range(0, Random.Range(0, images.Count+1));
+
+        rot = new List<int> {0, 90, 180, 270};
+
+        transform.rotation = new Quaternion(0,0,rot[Random.Range(0, rot.Count)], 0);
 
         SR.sprite = images[an][frame];
     }

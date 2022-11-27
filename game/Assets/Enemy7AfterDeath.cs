@@ -9,11 +9,13 @@ public class Enemy7AfterDeath : MonoBehaviour
 
     private EnemyShooting script_sh;
     private Health script_h;
+    private EffectsManager SoundEffectsScr;
 
     private void Start()
     {
         script_sh = GetComponent<EnemyShooting>();
         script_h = GetComponent<Health>();
+        SoundEffectsScr = script_sh.SoundEffectsScr;
     }
 
     private void OnDestroy()
@@ -41,6 +43,7 @@ public class Enemy7AfterDeath : MonoBehaviour
 
         scr_sh.allBullets = script_sh.allBullets;
         scr_sh.player_obj_link = script_sh.player_obj_link;
+        scr_sh.SoundEffectsScr = SoundEffectsScr;
 
         Rigidbody2D RB = e.GetComponent<Rigidbody2D>();
         RB.velocity = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));

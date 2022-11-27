@@ -6,11 +6,14 @@ public class PushEnemy3 : MonoBehaviour
 {
     private EnemyShooting scr_sh;
     private EnemyMovement scr_m;
+    private Health scr_h;
 
     public GameObject particle;
 
     private GameObject player_obj_link;
     private Transform player_transform;
+
+    private Animation scr_anim;
 
     public
     bool is_push;
@@ -23,6 +26,8 @@ public class PushEnemy3 : MonoBehaviour
 
         player_transform = player_obj_link.GetComponent<Transform>();
 
+        scr_anim = GetComponent<Animation>();
+
         is_push = false;
     }
 
@@ -31,6 +36,7 @@ public class PushEnemy3 : MonoBehaviour
         if (gameObject.transform.position[0] < player_transform.position[0] + 0.3f && player_transform.position[0] - 0.3f < gameObject.transform.position[0])
         {
             is_push = true;
+            scr_anim.needToPlay = true;
             particle.SetActive(true);
         }
         if (is_push == true)

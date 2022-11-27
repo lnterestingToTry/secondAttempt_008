@@ -12,13 +12,19 @@ public class EnemyComandor : MonoBehaviour
     private GameObject player_obj_link;
     private GameObject allBullets;
 
+    private Animation scr_anim;
+    private EffectsManager SoundEffectsScr;
+
     void Start()
     {
         spawnDelay = 3f;
-        EnemyShooting scr_sh = GetComponent<EnemyShooting>();
-        player_obj_link = scr_sh.player_obj_link;
-        allBullets = scr_sh.allBullets;
-}
+        EnemyShooting scrSh = GetComponent<EnemyShooting>();
+        player_obj_link = scrSh.player_obj_link;
+        allBullets = scrSh.allBullets;
+        SoundEffectsScr = scrSh.SoundEffectsScr;
+
+        scr_anim = GetComponent<Animation>();
+    }
 
     void Update()
     {
@@ -38,6 +44,8 @@ public class EnemyComandor : MonoBehaviour
             scr_sh.allBullets = allBullets;
             scr_sh.player_obj_link = player_obj_link;
 
+            scr_anim.needToPlay = true;
+            scr_sh.SoundEffectsScr = SoundEffectsScr;
 
             lastSpawn = Time.time;
         }

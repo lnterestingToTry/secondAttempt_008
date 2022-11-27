@@ -223,6 +223,7 @@ MonoBehaviour:
   particle: {fileID: 0}
   move: {x: 0, y: 0}
   expl: {fileID: 3248490843094944559, guid: edc1743007270f946b13efa2876ff3b5, type: 3}
+  damage: 0
 --- !u!114 &-6360253337789197812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,3 +246,4 @@ MonoBehaviour:
   need_to_destroy: 0
   loop: 1
   needToPlay: 1
+  always: 1

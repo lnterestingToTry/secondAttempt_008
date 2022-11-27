@@ -175,6 +175,7 @@ MonoBehaviour:
   b_speed: 50
   player_obj_link: {fileID: 0}
   shootXrange: 0.3
+  enemy_id: 0
 --- !u!114 &5249813346459205238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,7 +243,7 @@ MonoBehaviour:
   - {x: -0.024229614, y: 0.033781357, z: 0}
   m_ShapePathHash: 867852846
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1145016
+  m_InstanceId: -545380
 --- !u!1 &8909659265128232647
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +292,7 @@ MonoBehaviour:
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 0.5801887, b: 0.5801887, a: 1}
   m_Intensity: 0.5
-  m_LightVolumeOpacity: 0.051
+  m_LightVolumeOpacity: 0.05
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 1
@@ -301,8 +302,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.2
-  m_PointLightOuterRadius: 0.5
+  m_PointLightInnerRadius: 0.37
+  m_PointLightOuterRadius: 0.84
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5

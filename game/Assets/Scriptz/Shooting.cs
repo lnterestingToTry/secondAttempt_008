@@ -36,6 +36,9 @@ public class Shooting : MonoBehaviour
 
     public UIshootStyle UIanim;
 
+    public EffectsManager SoundEffectsScr;
+    public float volume;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +66,7 @@ public class Shooting : MonoBehaviour
 
         currBulletTime = 10;
         currBulletInUpdateTime = 0;
+        volume = 1;
         //p_now = 0;
     }
 
@@ -78,6 +82,15 @@ public class Shooting : MonoBehaviour
                     initBullet(i);
                 }
                 last_shoot_time = Time.time;
+
+                if(volume >= 0.1f)
+                {
+                    volume -= 0.05f;
+                }
+            }
+            else
+            {
+                volume = 1;
             }
         }
 
@@ -109,6 +122,9 @@ public class Shooting : MonoBehaviour
         b.transform.localScale *= b_size_mult;
 
         b.transform.rotation = Quaternion.Euler(0, 0, sh_st_rotation[p_now][i]);
+
+        SoundEffectsScr.indexSoundtoPlay.Add(1);
+        SoundEffectsScr.indexVolumetoPlay.Add(volume / (p_now + 1f));
     }
 
     public void bulletUpgrade(float time)

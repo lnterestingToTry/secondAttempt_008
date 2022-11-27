@@ -22,12 +22,26 @@ public class EnemyShooting : MonoBehaviour
 
     public float shootXrange;
 
+    public int enemy_id;
+
+    private Animation scr_anim;
+
+    public EffectsManager SoundEffectsScr;
+
     // Start is called before the first frame update
     void Start()
     {
         player_transform = player_obj_link.GetComponent<Transform>();
         //firerate = 0.5f;
         //b_speed = 70;
+        if (enemy_id == 2)
+        {
+            scr_anim = GetComponent<Animation>();
+        }
+        if (enemy_id == 6)
+        {
+            scr_anim = GetComponent<Animation>();
+        }
     }
 
     // Update is called once per frame
@@ -40,6 +54,15 @@ public class EnemyShooting : MonoBehaviour
                 initBullet();
                 //Debug.Log("FINE");
                 last_shoot_time = Time.time;
+
+                if (enemy_id == 2)
+                {
+                    scr_anim.needToPlay = true;
+                }
+                if (enemy_id == 6)
+                {
+                    scr_anim.needToPlay = true;
+                }
             }
         }
     }
@@ -50,6 +73,9 @@ public class EnemyShooting : MonoBehaviour
         EnemyBullet scr = b.GetComponent<EnemyBullet>();
         scr.move = new Vector2(Random.Range(-shootXrange, shootXrange), -1);
         scr.speed = b_speed;
+
+        SoundEffectsScr.indexSoundtoPlay.Add(1);
+        SoundEffectsScr.indexVolumetoPlay.Add(1);
         //b.transform.rotation = Quaternion.Euler(0, 0, sh_st_rotation[p_now][i]);
     }
 }

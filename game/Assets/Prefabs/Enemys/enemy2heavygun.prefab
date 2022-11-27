@@ -48,7 +48,7 @@ MonoBehaviour:
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.5
-  m_LightVolumeOpacity: 0.051
+  m_LightVolumeOpacity: 0.184
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 1
@@ -58,8 +58,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.2
-  m_PointLightOuterRadius: 0.5
+  m_PointLightInnerRadius: 0.35
+  m_PointLightOuterRadius: 0.69
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: -2992422858803654929}
   - component: {fileID: -4151052424897870529}
   - component: {fileID: 1310434200066769806}
+  - component: {fileID: 1626872788}
   m_Layer: 0
   m_Name: enemy2heavygun
   m_TagString: 0
@@ -239,12 +240,14 @@ MonoBehaviour:
   - {fileID: 6882551142743657827, guid: a065d4db5f6a715428d80f9553214f9e, type: 3}
   - {fileID: 5196668618887877207, guid: e3217994972fe0b43927ce024b5a797e, type: 3}
   allBullets: {fileID: 0}
-  firerate: 2
+  firerate: 3
   bullet_type: 0
   b_size_mult: 0
   b_speed: 120
   player_obj_link: {fileID: 0}
   shootXrange: 0.2
+  enemy_id: 2
+  SoundEffectsScr: {fileID: 0}
 --- !u!114 &-2992422858803654929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,4 +301,28 @@ MonoBehaviour:
   - {x: -0.030010184, y: 0.019993396, z: 0}
   m_ShapePathHash: -1781169606
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1138556
+  m_InstanceId: -410076
+--- !u!114 &1626872788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378713251151777262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbfc3954e6596ba4ab8947c848c6de1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim_list:
+  - {fileID: -1082319085815829877, guid: af1b71f5ceb8b0a4e8d492fb93ea9d93, type: 3}
+  - {fileID: 1478398471425187560, guid: af1b71f5ceb8b0a4e8d492fb93ea9d93, type: 3}
+  - {fileID: -17272632543869458, guid: af1b71f5ceb8b0a4e8d492fb93ea9d93, type: 3}
+  - {fileID: 8510989286920954225, guid: af1b71f5ceb8b0a4e8d492fb93ea9d93, type: 3}
+  - {fileID: 8144294727563734930, guid: af1b71f5ceb8b0a4e8d492fb93ea9d93, type: 3}
+  delay_per_frame: 0.01
+  delay_before_delate: 0
+  need_to_destroy: 0
+  loop: 1
+  needToPlay: 0
+  always: 0

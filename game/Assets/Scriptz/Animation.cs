@@ -17,11 +17,14 @@ public class Animation : MonoBehaviour
     public bool need_to_destroy;
     public bool loop;
     public bool needToPlay;
+    public bool always;
 
     // Start is called before the first frame update
     void Start()
     {
         SR = GetComponent<SpriteRenderer>();
+        frame = 0;
+
         //delay_per_frame = 0.2f;
     }
 
@@ -36,7 +39,6 @@ public class Animation : MonoBehaviour
 
                 SR.sprite = anim_list[frame];
                 frame += 1;
-
             }
         }
         else if(need_to_destroy == true)
@@ -46,10 +48,15 @@ public class Animation : MonoBehaviour
         else if(loop == true)
         {
             frame = 0;
+            needToPlay = false;
         }
         else if(needToPlay)
         {
             needToPlay = false;
+        }
+        if(always)
+        {
+            needToPlay = true;
         }
     }
 }

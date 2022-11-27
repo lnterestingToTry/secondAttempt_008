@@ -22,6 +22,8 @@ public class TempController : MonoBehaviour
     public GameObject UI_obj;
     public UIPowerUp UIPowerUp_scr;
 
+    public EffectsManager SoundEffectsScr;
+
     void Start()
     {
         movement_script = GetComponent<Movement>();
@@ -61,8 +63,22 @@ public class TempController : MonoBehaviour
 
     void activate(int index)
     {
+        for(int i = 0; i < tempNow.Count; i += 1)
+        {
+            if (i != index)
+            {
+                DEactivate(i);
+                tempNow[i] = false;
+                tempActivate[i] = false;
+                actual[i] = 0;
+            }
+        }
+
         UIPowerUp_scr.current = index;
         UI_obj.SetActive(true);
+
+        SoundEffectsScr.indexSoundtoPlay.Add(0);
+        SoundEffectsScr.indexVolumetoPlay.Add(1);
 
         switch (index)
         {
@@ -93,22 +109,22 @@ public class TempController : MonoBehaviour
         {
             case (0):
                 shooting_script.b_speed_mult = 1;
-                Debug.Log("work1");
+                //Debug.Log("work1");
                 break;
 
             case (1):
                 shooting_script.b_size_mult = 1;
-                Debug.Log("work2");
+                //Debug.Log("work2");
                 break;
 
             case (2):
                 movement_script.speed_mult = 1;
-                Debug.Log("work3");
+                //Debug.Log("work3");
                 break;
 
             case (3):
                 Bable.SetActive(false);
-                Debug.Log("work4");
+                //Debug.Log("work4");
                 break;
         }
     }

@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> EnemyForWave;
 
-
     public GameObject meteor;
 
     public GameObject allBullets;
@@ -49,6 +48,7 @@ public class GameManager : MonoBehaviour
     public float multiplier;
     public int multiplierIncrease, toMultiplierIncreaseBound;
 
+    public EffectsManager SoundEffectsScr;
 
     public Text multiplierLabel;
 
@@ -75,8 +75,16 @@ public class GameManager : MonoBehaviour
         multiplierIncrease = 0;
         toMultiplierIncreaseBound = 1000;
 
-        mult_update();
+        game_stopd = true;
+        //mult_update();
 
+        //multiplierChanged(0);
+    }
+
+    public void _Start()
+    {
+        game_stopd = false;
+        mult_update();
         multiplierChanged(0);
     }
 
@@ -112,7 +120,7 @@ public class GameManager : MonoBehaviour
         if (multiplierIncrease >= toMultiplierIncreaseBound)
         {
             game_stopd = true;
-            if (GO_enemys.transform.childCount <= 0)
+            if (GO_enemys.transform.childCount <= 0 && allBullets.transform.childCount <= 0)
             {
                 //Debug.Log("WOORK");
                 mult_update();
@@ -202,16 +210,19 @@ public class GameManager : MonoBehaviour
             scr_h.multiplier = multiplier;
 
             scr_m.move = new Vector2(Random.Range(moveE[side_to_spawn][0],
-                                                moveE[side_to_spawn][1]), Random.Range(-60, -45));
+                                                moveE[side_to_spawn][1]), Random.Range(-70, -45));
             //scr_m.speed = 1;
 
             scr_sh.allBullets = allBullets;
             scr_sh.player_obj_link = player;
+            scr_sh.SoundEffectsScr = SoundEffectsScr;
 
             //Enemy_list.Add(enemy);
 
             side_to_spawn = Random.Range(0, 3);
             spawn_point = Random.Range(0, pointsToSpawnE[side_to_spawn].Count);
+
+
         }
     }
 
@@ -254,6 +265,8 @@ public class GameManager : MonoBehaviour
             EnemyMovement scr_m = rocket.GetComponent<EnemyMovement>();
             WarningScript scr_warn = rocket.GetComponent<WarningScript>();
 
+            SoundEffectsScr.indexSoundtoPlay.Add(2);
+            SoundEffectsScr.indexVolumetoPlay.Add(1);
 
             scr_warn.player_tr_link = player.transform;
 
@@ -325,6 +338,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         //Time.timeScale = 0f;
+        //game_stopd = false;
     }
 
     public static int Time_seed()

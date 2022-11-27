@@ -171,6 +171,7 @@ MonoBehaviour:
   need_to_destroy: 0
   loop: 1
   needToPlay: 1
+  always: 1
 --- !u!114 &-6750116913295307099
 MonoBehaviour:
   m_ObjectHideFlags: 0

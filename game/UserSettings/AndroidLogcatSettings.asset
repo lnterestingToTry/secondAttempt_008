@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "12b1266a",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 8132,
+        "processId": 17946,
         "exited": true
     },
     "m_SelectedPriority": 0,
@@ -48,6 +48,18 @@
             "deviceId": "12b1266a",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 8132,
+            "exited": true
+        },
+        {
+            "deviceId": "12b1266a",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 23026,
+            "exited": true
+        },
+        {
+            "deviceId": "12b1266a",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 17946,
             "exited": true
         },
         {

@@ -25,10 +25,17 @@ public class StarsManager : MonoBehaviour
         {
             for (int i = 0; i <= starNum; i += 1)
             {
-                GameObject star = Instantiate(Star[Random.Range(0, 2)], new Vector3(Random.Range(-2.8f, 2.8f), Random.Range(transform.position[1], transform.position[1] + 12), 9), new Quaternion(0, 0, 0, 0), allStarsGO.transform);
+                GameObject star = Instantiate(Star[Random.Range(0, Star.Count)], new Vector3(Random.Range(-2.8f, 2.8f), Random.Range(transform.position[1], transform.position[1] + 12), 9), new Quaternion(0, 0, 0, 0), allStarsGO.transform);
             }
 
             lastSpawn = Time.time;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("5")) //backLine
+        {
+            Destroy(collision.gameObject);
         }
     }
 }
