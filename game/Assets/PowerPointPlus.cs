@@ -5,6 +5,9 @@ using UnityEngine;
 public class PowerPointPlus : MonoBehaviour
 {
     public int points_to_plus;
+    public int scorePlus;
+
+    public EffectsManager SoundEffectsScr;
 
     void Start()
     {
@@ -27,6 +30,12 @@ public class PowerPointPlus : MonoBehaviour
             scr.powerCounter += points_to_plus;
             scr.ShootSCounter += points_to_plus;
             scr.score += points_to_plus;
+
+            scr.score += scorePlus;
+            scr.kill_counter += 1;
+
+            SoundEffectsScr.indexSoundtoPlay.Add(Random.Range(3, 8));
+            SoundEffectsScr.indexVolumetoPlay.Add(1);
         }
     }
 }

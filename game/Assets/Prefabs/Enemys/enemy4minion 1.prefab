@@ -89,7 +89,6 @@ GameObject:
   - component: {fileID: 6932629119251945528}
   - component: {fileID: 7537764184249673656}
   - component: {fileID: -3343529207027731545}
-  - component: {fileID: -7860883935041743548}
   - component: {fileID: 8882603928936109901}
   m_Layer: 0
   m_Name: enemy4minion 1
@@ -123,7 +122,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.00014713593, y: 0.000000013038516}
@@ -248,6 +247,8 @@ MonoBehaviour:
   b_speed: 70
   player_obj_link: {fileID: 0}
   shootXrange: 0.1
+  enemy_id: 0
+  SoundEffectsScr: {fileID: 0}
 --- !u!114 &6932629119251945528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,6 +286,7 @@ MonoBehaviour:
   need_to_destroy: 0
   loop: 0
   needToPlay: 1
+  always: 0
 --- !u!114 &-3343529207027731545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,19 +299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bcc94a20e33a0242b51ce186c1cadfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-7860883935041743548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8943921403926638483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad5709b04826ca4b8fc04546edca906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points_to_plus: 2
 --- !u!114 &8882603928936109901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,4 +324,4 @@ MonoBehaviour:
   - {x: -0.019976346, y: 0.0146911405, z: 0}
   m_ShapePathHash: -1782824548
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1142176
+  m_InstanceId: -36086

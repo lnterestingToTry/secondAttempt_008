@@ -10,7 +10,10 @@ public class Health : MonoBehaviour
     public GameObject expl;
     void Start()
     {
-        hp = (int)(hp * multiplier);
+        if (multiplier > 0)
+        {
+            hp = (int)(hp * multiplier);
+        }
     }
 
     // Update is called once per frame

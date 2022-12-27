@@ -7,6 +7,7 @@ public class BeforeWaveAnim : MonoBehaviour
     public bool anim_end;
     public GameObject NewWaveCanvas;
     public Animator NewWaveInfAnim1;
+    public UnityEngine.UI.Text score;
 
     public List<ShipsForWaveIcon> shipsImgs;
     public List<DoubleDamageForWaveIcon> DamageImgs;
@@ -26,7 +27,7 @@ public class BeforeWaveAnim : MonoBehaviour
             AfterWaveUpdate();
         }
     }
-    public void BeforeWavePlay(List<int> enemys, List<int> damage)
+    public void BeforeWavePlay(List<int> enemys, List<int> damage, int current_score)
     {
         NewWaveCanvas.SetActive(true);
 
@@ -39,6 +40,8 @@ public class BeforeWaveAnim : MonoBehaviour
         {
             DamageImgs[i].current = damage[i];
         }
+
+        score.text = current_score.ToString();
     }
 
     private void AfterWaveUpdate()

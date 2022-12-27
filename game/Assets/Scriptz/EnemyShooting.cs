@@ -49,7 +49,7 @@ public class EnemyShooting : MonoBehaviour
     {
         if (Time.time - last_shoot_time > 1.0f / firerate)
         {
-            if(gameObject.transform.position[0] < player_transform.position[0] + 0.3f && player_transform.position[0] - 0.3f < gameObject.transform.position[0])
+            if (gameObject.transform.position[0] < player_transform.position[0] + 0.3f && player_transform.position[0] - 0.3f < gameObject.transform.position[0])
             {
                 initBullet();
                 //Debug.Log("FINE");

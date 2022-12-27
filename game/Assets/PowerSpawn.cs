@@ -8,7 +8,7 @@ public class PowerSpawn : MonoBehaviour
 
     public List<GameObject> pointsToSpawn;
 
-    public int powerCounter, PowerCounter_trigger, ShootSCounter, ShootSCounterTrigger, score;
+    public int powerCounter, PowerCounter_trigger, ShootSCounter, ShootSCounterTrigger, score, kill_counter;
 
     void Start()
     {

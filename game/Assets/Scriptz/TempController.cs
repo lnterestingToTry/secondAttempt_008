@@ -5,6 +5,8 @@ using UnityEngine;
 public class TempController : MonoBehaviour
 {
     public GameManager gm_script;
+    public PowerSpawn PowerSpawn_scr;
+
 
     Movement movement_script;
     Shooting shooting_script;
@@ -20,6 +22,7 @@ public class TempController : MonoBehaviour
     public List<bool> tempActivate;
 
     public GameObject UI_obj;
+    public UnityEngine.UI.Image UI_image;
     public UIPowerUp UIPowerUp_scr;
 
     public EffectsManager SoundEffectsScr;
@@ -29,7 +32,9 @@ public class TempController : MonoBehaviour
         movement_script = GetComponent<Movement>();
         shooting_script = GetComponent<Shooting>();
 
-        delay = new List<float> {4, 5, 6, 4};
+        UI_image = UI_obj.GetComponent<UnityEngine.UI.Image>();
+
+        delay = new List<float> {3, 4, 5, 3};
         actual = new List<float> { 0, 0, 0, 0 };
 
         tempNow = new List<bool> {false, false, false, false };
@@ -43,6 +48,9 @@ public class TempController : MonoBehaviour
             if(tempNow[i] == true)
             {
                 actual[i] += 0.01f * Time.timeScale;
+                Debug.Log(1f * actual[i] / delay[i]);
+                UI_image.color = new Color(255,255,255, 1f - (1f * actual[i] / delay[i]));
+
                 if (actual[i] > delay[i])
                 {
                     tempNow[i] = false;
@@ -133,14 +141,32 @@ public class TempController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("2") && tempNow[3] == false) //enemy_bullet
         {
-            gm_script.GameOver();
+            SoundEffectsScr.indexSoundtoPlay.Add(Random.Range(3, 8));
+            SoundEffectsScr.indexVolumetoPlay.Add(1);
+            gm_script.GameOver(PowerSpawn_scr.score, PowerSpawn_scr.kill_counter);
         }
-        else if(collision.gameObject.CompareTag("2"))
+        if (collision.gameObject.CompareTag("0") && tempNow[3] == false) //enemy
+        {
+            SoundEffectsScr.indexSoundtoPlay.Add(Random.Range(3, 8));
+            SoundEffectsScr.indexVolumetoPlay.Add(1);
+            gm_script.GameOver(PowerSpawn_scr.score, PowerSpawn_scr.kill_counter);
+
+            //collision.gameObject.GetComponent<Health>().hp = 0;
+        }
+        if (collision.gameObject.CompareTag("2") && tempNow[3] == true)
         {
             GameObject bable_p = Instantiate(bable_particle, collision.gameObject.transform.position, new Quaternion(0, 0, 0, 0));
             Destroy(bable_p, 1f);
 
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("0") && tempNow[3] == true)
+        {
+            GameObject bable_p = Instantiate(bable_particle, collision.gameObject.transform.position, new Quaternion(0, 0, 0, 0));
+            Destroy(bable_p, 1f);
+            DEactivate(3);
+
+            collision.gameObject.GetComponent<Health>().hp = 0;
         }
     }
 }

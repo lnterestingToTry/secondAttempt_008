@@ -124,10 +124,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.004724063}
+  m_Offset: {x: -0.00031694537, y: -0.004724063}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -138,7 +138,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.039467648, y: 0.05014108}
+  m_Size: {x: 0.020239808, y: 0.05014108}
   m_EdgeRadius: 0
 --- !u!50 &6375230603546938575
 Rigidbody2D:
@@ -249,6 +249,7 @@ MonoBehaviour:
   player_obj_link: {fileID: 0}
   shootXrange: 0.1
   enemy_id: 0
+  SoundEffectsScr: {fileID: 0}
 --- !u!114 &2959110257033090298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +278,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points_to_plus: 2
+  scorePlus: 3
+  SoundEffectsScr: {fileID: 0}
 --- !u!114 &6274961770348054168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +319,7 @@ MonoBehaviour:
   - {x: -0.030010184, y: 0.019993396, z: 0}
   m_ShapePathHash: -1781169606
   m_Mesh: {fileID: 0}
-  m_InstanceId: -516892
+  m_InstanceId: -33764
 --- !u!114 &4606352440597612008
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -50,7 +50,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 9.313226e-10, y: 0}
@@ -175,6 +175,7 @@ MonoBehaviour:
   player_obj_link: {fileID: 0}
   shootXrange: 0.2
   enemy_id: 0
+  SoundEffectsScr: {fileID: 0}
 --- !u!114 &-4243220496596569391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points_to_plus: 2
+  scorePlus: 3
+  SoundEffectsScr: {fileID: 0}
 --- !u!114 &997464397024902896
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,11 +26,17 @@ public class GameManager : MonoBehaviour
     public List<List<int>> moveE;
 
     public GameObject GO_enemys;
+    public PowerSpawn PowerSpawn_scr;
 
 
     private bool game_paused;
     public GameObject PauseCanvas;
     public GameObject ToMainMenuCanvas;
+
+    public GameObject AfterGameCanvas;
+    public Text scoreText;
+    public Text killCounterText;
+
 
     public bool game_stopd;
     //public GameObject NewWaveCanvas;
@@ -49,8 +55,11 @@ public class GameManager : MonoBehaviour
     public int multiplierIncrease, toMultiplierIncreaseBound;
 
     public EffectsManager SoundEffectsScr;
+    public MusicManager MusicManagerScr;
 
     public Text multiplierLabel;
+
+    public SettingsKeeper settingsKeeper_scr;
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +70,7 @@ public class GameManager : MonoBehaviour
         player_sh_scr = player.GetComponent<Shooting>();
 
         last_spawn = 0;
-        spawn_delay = 6.3f;
+        spawn_delay = 4.8f;
         to_spawn = 3;
 
         pointsToSpawnE = new List<List<GameObject>> { pointsToSpLeft, pointsToSpCenter, pointsToSpRight };
@@ -191,7 +200,7 @@ public class GameManager : MonoBehaviour
         player_sh_scr.sh_st_double_damage = indexsD;
 
 
-        beforeWaveAnim.BeforeWavePlay(indexsE, indexsD);
+        beforeWaveAnim.BeforeWavePlay(indexsE, indexsD, PowerSpawn_scr.score);
     }
 
     private void new_enemy(int to_spawn)
@@ -206,6 +215,7 @@ public class GameManager : MonoBehaviour
             EnemyMovement scr_m = enemy.GetComponent<EnemyMovement>();
             EnemyShooting scr_sh = enemy.GetComponent<EnemyShooting>();
             Health scr_h = enemy.GetComponent<Health>();
+            PowerPointPlus scr_ppp = enemy.GetComponent<PowerPointPlus>();
 
             scr_h.multiplier = multiplier;
 
@@ -217,11 +227,12 @@ public class GameManager : MonoBehaviour
             scr_sh.player_obj_link = player;
             scr_sh.SoundEffectsScr = SoundEffectsScr;
 
+            scr_ppp.SoundEffectsScr = SoundEffectsScr;
+            scr_ppp.scorePlus = System.Convert.ToInt32(scr_ppp.scorePlus * multiplier);
             //Enemy_list.Add(enemy);
 
             side_to_spawn = Random.Range(0, 3);
             spawn_point = Random.Range(0, pointsToSpawnE[side_to_spawn].Count);
-
 
         }
     }
@@ -335,10 +346,35 @@ public class GameManager : MonoBehaviour
         PauseCanvas.SetActive(true);
     }
 
-    public void GameOver()
+    public void GameOver(int score, int kill_counter)
     {
-        //Time.timeScale = 0f;
-        //game_stopd = false;
+        Time.timeScale = 0.1f;
+        game_stopd = true;
+
+        AfterGameCanvas.SetActive(true);
+
+        scoreText.text = score.ToString();
+        if (settingsKeeper_scr.record_score < score)
+        {
+            settingsKeeper_scr.record_score = score;
+            settingsKeeper_scr.SaveData();
+        }
+
+        killCounterText.text = kill_counter.ToString();
+
+        player.GetComponent<Movement>().speed_mult = 0;
+        allBullets.SetActive(false);
+
+        SoundEffectsScr.indexSoundtoPlay = new List<int> { };
+        SoundEffectsScr.indexVolumetoPlay = new List<float> { };
+        SoundEffectsScr.gameObject.GetComponent<AudioSource>().volume = 0f;
+
+        MusicManagerScr.gameOver();
+    }
+
+    public void afterGameOver()
+    {
+        Time.timeScale = 1F;
     }
 
     public static int Time_seed()

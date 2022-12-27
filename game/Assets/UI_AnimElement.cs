@@ -10,9 +10,9 @@ public class UI_AnimElement : MonoBehaviour
 
     private float last_update;
     public float delay_per_frame;
-    private int frame;
+    public int frame;
 
-    public bool need_to_DEactivate;
+    public bool need_to_DEactivate, always;
     
     // Start is called before the first frame update
     void Start()
@@ -25,16 +25,19 @@ public class UI_AnimElement : MonoBehaviour
     {
         if (frame < anim.Count)
         {
-            if (Time.time - last_update > delay_per_frame)
+            if (last_update > delay_per_frame)
             {
-                last_update = Time.time;
+                last_update = 0;
 
                 SR.sprite = anim[frame];
                 frame += 1;
-
+            }
+            else
+            {
+                last_update += 1;
             }
         }
-        else
+        else if (always == true)
         {
             frame = 0;
             if (need_to_DEactivate)
@@ -45,5 +48,10 @@ public class UI_AnimElement : MonoBehaviour
         }
 
 
+    }
+
+    public void frame0()
+    {
+        frame = 0;
     }
 }

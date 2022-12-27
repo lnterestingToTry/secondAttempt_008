@@ -77,6 +77,8 @@ public class SettingsKeeper : MonoBehaviour
             music_value = data.music_value;
             effects_value = data.effects_value;
 
+            //Debug.Log(record_score);
+
             Debug.Log("Game data loaded!");
             return 1;
         }
@@ -102,7 +104,7 @@ public class SettingsKeeper : MonoBehaviour
 
     void SetDefaultValues()
     {
-        record_score = 1;
+        record_score = 0;
         music_value = 0.5f;
         effects_value = 0.5f;
     }
@@ -114,6 +116,8 @@ public class SettingsKeeper : MonoBehaviour
 
         effects.volume = effects_value;
         effects_slider.value = effects_value;
+
+        record_value.text = record_score.ToString();
     }
 
     public void SetMusicVolume()

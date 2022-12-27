@@ -10,6 +10,8 @@ public class Shooting : MonoBehaviour
 
     public GameObject allBullets;
 
+    public GameManager gameManager_scr;
+
     public List<List<GameObject>> points;
     public List<GameObject> p1;
     public List<GameObject> p2;
@@ -42,10 +44,10 @@ public class Shooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sh_st_speed = new List<int> {80, 50, 40, 60, 60};
+        sh_st_speed = new List<int> {90, 50, 30, 60, 60};
         sh_st_damage = new List<int> {2, 2, 2, 2, 2};
 
-        sh_st_firerate = new List<float> {5, 2, 1, 3, 3 };
+        sh_st_firerate = new List<float> {6, 3, 2, 4, 3 };
 
         shoot_style = new List<List<Vector2>> { new List<Vector2> { new Vector2(0, 1) },
         new List<Vector2> { new Vector2(-1, 1), new Vector2(0, 1), new Vector2(1, 1) },
@@ -73,24 +75,27 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - last_shoot_time > 1 / sh_st_firerate[p_now])
+        if (gameManager_scr.GO_enemys.transform.childCount > 0 || gameManager_scr.game_stopd == false)
         {
-            if (Input.GetMouseButton(0))
+            if (Time.time - last_shoot_time > 1 / sh_st_firerate[p_now] && Time.timeScale != 0)
             {
-                for (int i = 0; i < points[p_now].Count; i += 1)
+                if (Input.GetMouseButton(0))
                 {
-                    initBullet(i);
-                }
-                last_shoot_time = Time.time;
+                    for (int i = 0; i < points[p_now].Count; i += 1)
+                    {
+                        initBullet(i);
+                    }
+                    last_shoot_time = Time.time;
 
-                if(volume >= 0.1f)
-                {
-                    volume -= 0.05f;
+                    if (volume >= 0.1f)
+                    {
+                        volume -= 0.05f;
+                    }
                 }
-            }
-            else
-            {
-                volume = 1;
+                else
+                {
+                    volume = 1;
+                }
             }
         }
 

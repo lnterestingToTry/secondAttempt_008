@@ -123,7 +123,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -249,6 +249,7 @@ MonoBehaviour:
   player_obj_link: {fileID: 0}
   shootXrange: 0.4
   enemy_id: 0
+  SoundEffectsScr: {fileID: 0}
 --- !u!114 &6303003068943228476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636279e9fb8da0d469591c8273ec87a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 9
+  hp: 6
   multiplier: 0
   expl: {fileID: 3243405183911659720, guid: 4c19d824d3592c84eae4be3e4b43ed88, type: 3}
 --- !u!114 &7730002587903360359
@@ -290,6 +291,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points_to_plus: 2
+  scorePlus: 3
+  SoundEffectsScr: {fileID: 0}
 --- !u!114 &203544009523526301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,7 +322,7 @@ MonoBehaviour:
   - {x: -0.029010946, y: -0.009710467, z: 0}
   m_ShapePathHash: -511184175
   m_Mesh: {fileID: 0}
-  m_InstanceId: -540216
+  m_InstanceId: -35550
 --- !u!114 &2175079021532829518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,3 +346,4 @@ MonoBehaviour:
   need_to_destroy: 0
   loop: 1
   needToPlay: 0
+  always: 0

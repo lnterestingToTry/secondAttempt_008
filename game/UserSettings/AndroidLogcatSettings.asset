@@ -1,10 +1,10 @@
 {
-    "m_SelectedDeviceId": "12b1266a",
+    "m_SelectedDeviceId": "364a4d3643483098",
     "m_SelectedPackage": {
-        "deviceId": "12b1266a",
-        "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 17946,
-        "exited": true
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
+        "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
@@ -63,6 +63,12 @@
             "exited": true
         },
         {
+            "deviceId": "12b1266a",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 10512,
+            "exited": true
+        },
+        {
             "deviceId": "3d3bfe4a",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 9250,
@@ -96,6 +102,36 @@
             "deviceId": "3d3bfe4a",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 25548,
+            "exited": true
+        },
+        {
+            "deviceId": "364a4d3643483098",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 13839,
+            "exited": true
+        },
+        {
+            "deviceId": "364a4d3643483098",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 16402,
+            "exited": true
+        },
+        {
+            "deviceId": "364a4d3643483098",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 18536,
+            "exited": true
+        },
+        {
+            "deviceId": "364a4d3643483098",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 10727,
+            "exited": true
+        },
+        {
+            "deviceId": "364a4d3643483098",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 17898,
             "exited": true
         }
     ],

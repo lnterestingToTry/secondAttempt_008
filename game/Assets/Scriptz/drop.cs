@@ -8,10 +8,13 @@ public class drop : MonoBehaviour
     public float speed;
     Vector2 move_in;
 
+    public UnityEngine.Animation animation_comp;
+
     void Start()
     {
         RB = GetComponent<Rigidbody2D>();
         move_in = new Vector2(0, 1);
+        animation_comp = GetComponent<UnityEngine.Animation>();
     }
 
     // Update is called once per frame
@@ -22,6 +25,11 @@ public class drop : MonoBehaviour
         if (transform.position.y <= -7)
         {
             Destroy(gameObject);
+        }
+
+        if(animation_comp.IsPlaying(animation_comp.name) == false)
+        {
+            animation_comp.Play();
         }
     }
 }

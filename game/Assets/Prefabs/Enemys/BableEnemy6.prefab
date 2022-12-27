@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 7
-  multiplier: 1
+  multiplier: 0
   expl: {fileID: 7765494098388401748, guid: 2354f33c048dcfc43a93dd79ed062b37, type: 3}
 --- !u!114 &-1407138738157134016
 MonoBehaviour:
