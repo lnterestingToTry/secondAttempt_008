@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
-  multiplier: 1
+  multiplier: 0
   expl: {fileID: 3669265790062076772, guid: 90523f8056130af489e55318495b3b62, type: 3}
 --- !u!114 &3223875411834087731
 MonoBehaviour:

@@ -234,5 +234,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
-  multiplier: 1
+  multiplier: 0
   expl: {fileID: 3248490843094944559, guid: edc1743007270f946b13efa2876ff3b5, type: 3}
